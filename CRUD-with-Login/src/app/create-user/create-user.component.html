@@ -1,0 +1,80 @@
+
+
+<form [formGroup]="userForm" (ngSubmit)="onFormSubmit()">
+  <div mat-dialog-content>
+    <h4>Create User Form</h4>
+    <div class="column content">
+      <div class="border border-secondary rounded p-2 mt-2">
+        <div class="cell">
+          <mat-form-field appearance="outline">
+            <mat-label>ID :</mat-label>
+            <input matInput type="text" disabled name="id" />
+          </mat-form-field>
+        </div>
+
+        <div class="cell">
+          <mat-form-field appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input
+              matInput
+              type="text"
+              placeholder="Enter First Name"
+              formControlName="first_name"
+            />
+          </mat-form-field>
+        </div>
+
+        <div class="cell">
+          <mat-form-field appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input
+              matInput
+              type="text"
+              placeholder="Enter Last Name"
+              formControlName="last_name"
+            />
+          </mat-form-field>
+        </div>
+
+        <div class="cell">
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              type="email"
+              placeholder="Enter Your Email"
+              formControlName="email"
+            />
+          </mat-form-field>
+        </div>
+
+        <div class="m-3">
+          <label for="formFile" class="form-label">Upload Your Avatar :</label>
+          <input class="form-control" type="file" id="formFile" />
+        </div>
+      </div>
+
+      <div class="mt-4">
+        <button
+          class="mr-5"
+          mat-raised-button
+          color="primary"
+          (click)="userForm.reset()"
+        >
+          Reset
+        </button>
+        <button mat-raised-button color="warn" (click)="closeDialog()">
+          Close
+        </button>
+        <button
+          mat-stroked-button
+          type="submit"
+          [disabled]="!userForm.valid"
+          class="float-end"
+        >
+          Insert
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

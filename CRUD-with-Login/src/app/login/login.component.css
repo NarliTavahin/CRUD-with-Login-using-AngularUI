@@ -1,0 +1,22 @@
+._body {
+  width: 70%;
+  margin: 0 auto;
+}
+
+._form {
+  width: 80%;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+._btn {
+  width: 70%;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,57 @@
+
+<form [formGroup]="updateUserForm" (ngSubmit)="onFormSubmit()">
+  <div mat-dialog-content>
+    <h4>Update User Form</h4>
+    <div class="column content">
+      <div class="mt-2">
+        <div class="cell">
+          <mat-form-field appearance="outline">
+            <mat-label class="fw-bold">First Name: </mat-label>
+            <input matInput type="text" formControlName="first_name" />
+          </mat-form-field>
+        </div>
+
+        <div class="cell">
+          <mat-form-field appearance="outline">
+            <mat-label class="fw-bold">Last Name: </mat-label>
+            <input matInput type="text" formControlName="last_name" />
+          </mat-form-field>
+        </div>
+
+        <div class="cell">
+          <mat-form-field appearance="outline">
+            <mat-label class="fw-bold">Email:</mat-label>
+            <input matInput type="email" formControlName="email" />
+          </mat-form-field>
+        </div>
+
+        <div class="cell" appearance="outline">
+          <mat-label class="p-3 fw-bold">Avatar:</mat-label>
+          <img mat-card-sm-image [src]="data.avatar" *ngIf="data.avatar" />
+
+          <input class="gx-1" type="file" id="formFile" />
+        </div>
+      </div>
+
+      <div class="mt-2">
+        <button
+          mat-raised-button
+          type="submit"
+          [disabled]="!updateUserForm.valid"
+          class="mr-4 float-end"
+        >
+          Update
+        </button>
+
+        <button
+          mat-stroked-button
+          type="button"
+          (click)="onClose()"
+          class="mr-4 float-start"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

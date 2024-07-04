@@ -1,0 +1,51 @@
+
+<div class="read-user-container">
+  <form [formGroup]="ReadUserForm" class="read-user-container">
+    <div mat-dialog-content>
+      <h4>Read User Form</h4>
+      <div class="column content">
+        <div class="cell">
+          <mat-form-field appearance="outline">
+            <mat-label>ID</mat-label>
+            <input matInput formControlName="id" />
+          </mat-form-field>
+        </div>
+
+        <div class="cell">
+          <mat-form-field appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input matInput formControlName="first_name" />
+          </mat-form-field>
+        </div>
+
+        <div class="cell">
+          <mat-form-field appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input matInput formControlName="last_name" />
+          </mat-form-field>
+        </div>
+
+        <div class="cell">
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" />
+          </mat-form-field>
+        </div>
+
+        <div>
+          <img
+            mat-card-sm-image
+            [src]="ReadUserForm.get('avatar')?.value"
+            *ngIf="ReadUserForm.get('avatar')?.value"
+          />
+        </div>
+
+        <div class="mt-4">
+          <button mat-flat-button (click)="onClose()" class="float-end">
+            OK
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

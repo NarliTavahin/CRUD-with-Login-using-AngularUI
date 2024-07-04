@@ -1,0 +1,94 @@
+
+<mat-toolbar color="primary" class="mb-3">
+  <span>CRUD Application in Angular</span>
+
+  <span class="example-spacer"></span>
+
+  <button mat-flat-button class="m-2" (click)="openDialog()">
+    ADD EMPLOYEE
+  </button>
+
+  <button mat-flat-button color="warn" (click)="onLogout()">LOGOUT</button>
+</mat-toolbar>
+
+<div class="main-body">
+  <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="Ex. George"
+      #input
+    />
+  </mat-form-field>
+
+  <div>
+    <table mat-table [dataSource]="dataSource" matSort class="w-100">
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+        <td mat-cell *matCellDef="let user">{{ user.id }}</td>
+      </ng-container>
+
+      <!-- AVATAR Column -->
+      <ng-container matColumnDef="avatar">
+        <th mat-header-cell *matHeaderCellDef>Avatar</th>
+        <td mat-cell *matCellDef="let user">
+          <img [src]="user.avatar" alt="Avatar" width="88" height="88" />
+        </td>
+      </ng-container>
+
+      <!-- First Name Column -->
+      <ng-container matColumnDef="first_name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>First Name</th>
+        <td mat-cell *matCellDef="let user">{{ user.first_name }}</td>
+      </ng-container>
+
+      <!-- Last Name Column -->
+      <ng-container matColumnDef="last_name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Last Name</th>
+        <td mat-cell *matCellDef="let user">{{ user.last_name }}</td>
+      </ng-container>
+
+      <!-- Email Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+        <td mat-cell *matCellDef="let user">{{ user.email }}</td>
+      </ng-container>
+
+      <!-- Action Column -->
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>Action</th>
+        <td mat-cell *matCellDef="let user">
+          <div class="action-buttons">
+            <button
+              mat-icon-button
+              color="accent"
+              (click)="openReadUserDialog(user.id)"
+            >
+              <mat-icon>visibility</mat-icon>
+            </button>
+            <button
+              mat-icon-button
+              color="primary"
+              (click)="openEditForm(user)"
+            >
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="deleteUser(user.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <mat-paginator
+      [pageSizeOptions]="[2, 4, 6, 8]"
+      showFirstLastButtons
+    ></mat-paginator>
+  </div>
+</div>

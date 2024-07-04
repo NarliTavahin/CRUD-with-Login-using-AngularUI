@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+
+html, body {
+    width: 90%;
+    height: 100vh;
+    
+    margin: 7% auto;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    overflow: hidden;
+  }
+  
+  .read-user-container {
+    max-height: 100vh;
+    overflow: hidden;
+  }
+  

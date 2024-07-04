@@ -1,0 +1,21 @@
+/* --------------------------------Toolbar */
+.example-spacer {
+  flex: 1 1 auto !important;
+}
+
+/* --------------------------------Table */
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td,
+th {
+  width: 25%;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
